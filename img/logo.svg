@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="degrade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#e8457c"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Fundo -->
+  <rect width="64" height="64" rx="16" fill="url(#degrade)"/>
+
+  <!-- Controle -->
+  <g transform="translate(0 -4)">
+    <path d="M16 24h32a10 10 0 0 1 10 10l2 10a6 6 0 0 1-10 4l-6-6H20l-6 6a6 6 0 0 1-10-4l2-10a10 10 0 0 1 10-10z" fill="#fff"/>
+
+    <!-- Direcional -->
+    <rect x="18" y="28" width="4" height="10" rx="1" fill="#8b5cf6"/>
+    <rect x="15" y="31" width="10" height="4" rx="1" fill="#8b5cf6"/>
+
+    <!-- Botões -->
+    <circle cx="43" cy="30.5" r="2.3" fill="#e8457c"/>
+    <circle cx="48" cy="35" r="2.3" fill="#e8457c"/>
+    <circle cx="38" cy="35" r="2.3" fill="#c04fa8"/>
+    <circle cx="43" cy="39.5" r="2.3" fill="#c04fa8"/>
+  </g>
+</svg>

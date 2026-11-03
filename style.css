@@ -1,0 +1,523 @@
+/* Cores principais do site */
+:root {
+  --fundo: #140f1f;
+  --card: #231a33;
+  --roxo: #8b5cf6;
+  --rosa: #e8457c;
+  --texto-claro: #b9aecb;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.18), transparent 40%),
+    radial-gradient(circle at 90% 60%, rgba(232, 69, 124, 0.15), transparent 40%),
+    linear-gradient(180deg, #1d1230 0%, var(--fundo) 50%);
+  background-attachment: fixed;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #100b19;
+  padding: 12px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-brand .destaque {
+  color: var(--rosa);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  box-shadow: 0 0 15px rgba(232, 69, 124, 0.4);
+  border-radius: 10px;
+}
+
+.navbar .nav-link {
+  color: var(--texto-claro);
+  padding: 6px 18px !important;
+  margin: 0 4px;
+  border-radius: 20px;
+}
+
+.navbar .nav-link:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.navbar .nav-link.active {
+  color: #fff;
+  background: linear-gradient(90deg, var(--roxo), var(--rosa));
+}
+
+/* Carrossel da página inicial */
+#carrossel .carousel-item img {
+  height: 75vh;
+  object-fit: cover;
+}
+
+/* Escurece a imagem do lado esquerdo para o texto aparecer */
+#carrossel .carousel-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(20, 15, 31, 0.95) 25%, rgba(20, 15, 31, 0.1) 70%);
+}
+
+.carousel-caption {
+  z-index: 2;
+  text-align: left;
+  left: 10%;
+  right: auto;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+  max-width: 500px;
+}
+
+.carousel-caption h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.carousel-caption p {
+  color: var(--texto-claro);
+}
+
+.carousel-indicators,
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 3;
+}
+
+.tag {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--texto-claro);
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-rosa {
+  background: linear-gradient(90deg, var(--roxo), var(--rosa));
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+}
+
+.btn-rosa:hover {
+  background: linear-gradient(90deg, var(--rosa), var(--roxo));
+  color: #fff;
+}
+
+/* Títulos das seções */
+.titulo-secao {
+  font-weight: 600;
+  margin: 50px 0 20px;
+}
+
+/* Barrinha em degradê embaixo dos títulos */
+.titulo-secao::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--roxo), var(--rosa));
+}
+
+/* Caixas de informação da home */
+.info-box {
+  background: linear-gradient(145deg, #2c1f42, #1b1528);
+  border-radius: 15px;
+  padding: 25px;
+  height: 100%;
+}
+
+.info-box h5 {
+  color: var(--rosa);
+}
+
+.info-box p {
+  color: var(--texto-claro);
+  margin: 0;
+}
+
+.texto-home p {
+  color: var(--texto-claro);
+}
+
+.img-home {
+  border-radius: 15px;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+}
+
+/* Caixas do PS4 e PS5 na home */
+.console-box {
+  background: linear-gradient(145deg, #2c1f42, #1b1528);
+  border: 1px solid #2f2445;
+  border-radius: 15px;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.console-box img {
+  width: 140px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.console-box h3 {
+  font-weight: 600;
+}
+
+.console-box p {
+  color: var(--texto-claro);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .console-box {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* Cards dos jogos */
+.card-jogo {
+  background: linear-gradient(180deg, #2c1f42, #1b1528);
+  border: 1px solid #2f2445;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.card-jogo:hover {
+  transform: translateY(-5px);
+  border-color: var(--roxo);
+}
+
+/* Mesmo formato das capas (3x4), assim a imagem aparece inteira */
+.card-jogo img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.card-jogo .card-title {
+  color: #fff;
+  font-weight: 600;
+}
+
+.card-jogo .card-text {
+  color: var(--texto-claro);
+  font-size: 0.9rem;
+}
+
+.preco {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Página sobre */
+.card-sobre {
+  background: linear-gradient(145deg, #2c1f42, #1b1528);
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 50px;
+}
+
+/* Foto com borda em degradê */
+.foto-perfil {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+  padding: 4px;
+  background: linear-gradient(135deg, var(--roxo), var(--rosa));
+}
+
+.contato {
+  display: block;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+
+.contato:hover {
+  background: linear-gradient(90deg, var(--roxo), var(--rosa));
+  color: #fff;
+}
+
+.contato small {
+  color: var(--texto-claro);
+  display: block;
+}
+
+.contato:hover small {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .card-sobre {
+    padding: 25px;
+    text-align: center;
+  }
+
+  .foto-perfil {
+    max-width: 220px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* Destaques (PS4 e PS5) */
+html {
+  scroll-behavior: smooth;
+}
+
+[id^="jogo-"] {
+  scroll-margin-top: 100px;
+}
+
+.destaque {
+  height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #2f2445;
+}
+
+.destaque .carousel-inner,
+.destaque .carousel-item {
+  height: 100%;
+}
+
+/* Capa borrada no fundo */
+.destaque .fundo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(25px) brightness(0.5);
+  transform: scale(1.2);
+}
+
+.destaque-conteudo {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 50px 70px;
+  background: linear-gradient(90deg, rgba(20, 15, 31, 0.9), rgba(20, 15, 31, 0.1));
+}
+
+.destaque-texto {
+  max-width: 420px;
+}
+
+.destaque h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.destaque p {
+  color: var(--texto-claro);
+}
+
+.destaque .capa {
+  height: 270px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transform: rotate(3deg);
+}
+
+.destaque-setas {
+  position: absolute;
+  left: 50px;
+  bottom: 20px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+
+.seta {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.seta:hover {
+  background: linear-gradient(90deg, var(--roxo), var(--rosa));
+  border-color: transparent;
+}
+
+.contador {
+  position: absolute;
+  right: 30px;
+  bottom: 28px;
+  z-index: 2;
+  color: var(--texto-claro);
+}
+
+/* Lista de mais vendidos */
+.lista-jogos {
+  height: 380px;
+  background: linear-gradient(145deg, #2c1f42, #1b1528);
+  border: 1px solid #2f2445;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lista-jogos h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.lista-itens {
+  overflow-y: auto;
+  padding-right: 5px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--roxo) transparent;
+}
+
+.item-lista {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  text-decoration: none;
+}
+
+.item-lista:hover {
+  color: #fff;
+}
+
+.item-lista img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item-lista h6 {
+  margin: 0 0 5px;
+  font-size: 0.95rem;
+}
+
+.item-lista .tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  margin: 0;
+}
+
+.seta-item {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto-claro);
+}
+
+.item-lista:hover .seta-item {
+  background: linear-gradient(90deg, var(--roxo), var(--rosa));
+  border-color: transparent;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .destaque {
+    height: 340px;
+  }
+
+  .destaque .capa {
+    display: none;
+  }
+
+  .destaque-conteudo {
+    padding: 30px 25px 70px;
+  }
+
+  .destaque h2 {
+    font-size: 1.8rem;
+  }
+
+  .destaque-setas {
+    left: 25px;
+  }
+}
+
+/* Rodapé */
+footer {
+  border-top: 2px solid;
+  border-image: linear-gradient(90deg, var(--roxo), var(--rosa)) 1;
+  color: var(--texto-claro);
+  padding: 20px 0;
+  margin-top: 60px;
+}
+
+@media (max-width: 991px) {
+  .navbar .btn-rosa {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  #carrossel .carousel-item img {
+    height: 60vh;
+  }
+
+  .carousel-caption {
+    left: 8%;
+    right: 8%;
+  }
+
+  .carousel-caption h1 {
+    font-size: 2rem;
+  }
+}
